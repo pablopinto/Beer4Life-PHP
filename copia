@@ -1,0 +1,114 @@
+<div class="single-product-wrapper">
+            	     <!-- Product Image -->
+            	     <div class="product-img">
+            	         <img src="<?php echo "$imagen" ;?>" alt="">
+            	         <!-- Hover Thumb -->
+            	         <img class="hover-img" src="<?php echo "$imagen" ;?>" alt="">
+					</div>
+            	     <!-- Product Description -->
+            	     <div class="product-description d-flex align-items-center justify-content-between">
+            	         <!-- Product Meta Data -->
+            	         <div class="product-meta-data">
+            	             <div class="line"></div>
+            	             <!-- <p class="product-price">$180</p> -->
+            	             <a href="product-details.html">
+            	                 <h6><?php echo "$nombre"; ?></h6>
+            	             </a>
+            	         </div>
+            	         <!-- Ratings & Cart -->
+						<div class="ratings-cart text-right">
+            	             <div class="ratings">
+								<?php
+								$j  = 0;
+								$rating = $item->nota;
+								while ($j < $rating):
+									?>
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<?php
+								$j += 1;
+								endwhile;
+								?>
+            	             </div>
+            	             <div class="cart">
+            	                 <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/cart.png" alt=""></a>
+            	             </div>
+            	         </div>
+            	     </div>
+				</div>
+			</div>
+
+            --------------
+             <div class="ratings">
+								<?php
+								$j  = 0;
+								$rating = $item->nota;
+								while ($j < $rating):
+									?>
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<?php
+								$j += 1;
+								endwhile;
+								?>
+            	             </div>
+
+                             ----------------------------
+                             <div class="single-product-wrapper">
+            	     <!-- Product Image -->
+            	     <div class="product-img">
+            	         <img src="<?php echo "$imagen" ;?>" alt="">
+            	         <!-- Hover Thumb -->
+            	         <img class="hover-img" src="<?php echo "$imagen" ;?>" alt="">
+					</div>
+            	     <!-- Product Description -->
+            	     <div class="product-description d-flex align-items-center justify-content-between">
+            	         <!-- Product Meta Data -->
+            	         <div class="product-meta-data">
+            	             <div class="line"></div>
+            	             <!-- <p class="product-price">$180</p> -->
+            	             <a href="product-details.html">
+            	                 <h6><?php echo "$nombre"; ?></h6>
+            	             </a>
+            	         </div>
+            	         <!-- Ratings & Cart -->
+						<div class="ratings-cart text-right">
+            	             <div class="cart">
+            	                 <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/cart.png" alt=""></a>
+            	             </div>
+            	         </div>
+            	     </div>
+				</div>
+			</div>
+
+
+			-------------
+
+			 <a href="cart.php" data-toggle="tooltip" data-placement="left" title="Add to Cart" id="$id" name="producto"><img src="img/core-img/cart.png" alt=""></a>
+
+			 ------------
+
+			 $sql = "SELECT * FROM usuario WHERE usuario='admin' AND password=MD5('admin') ;" ; 
+if ($db->queryAction($sql)){
+    ?>
+ <pre>
+ <?php
+    $usuario = $db->getObject();
+
+    print_r($usuario);
+}
+                
+// $nombre = Usuario::$nombre;
+print_r ($ses);
+
+ $nom = $_GET["nombre"];
+ $img = $_GET["imagen"];
+ $id = $_GET["id"];
+
+ $arrayProd = array($nom,$img,$id,$idUsuario);
+
+$sql = "INSERT INTO carrito (nombre,imagen,idCerveza,idUsuario) VALUES ($nom,$img,$id,$idUsuario) " ;
+ ?>
+ <pre>
+ <?php
+ print_r($arrayProd) ;
+ ?>
+</pre>
